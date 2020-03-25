@@ -4,9 +4,9 @@ exports.up = function(knex) {
       .increments('id')
       .notNullable()
       .primary();
-    table.string('name').notNullable();
+    table.string('name', 255).notNullable();
     table
-      .string('email')
+      .string('email', 255)
       .unique()
       .notNullable();
     table
