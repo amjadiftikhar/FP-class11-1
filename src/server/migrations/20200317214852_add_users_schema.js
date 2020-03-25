@@ -4,9 +4,9 @@ exports.up = function(knex) {
       .increments('id')
       .notNullable()
       .primary();
-    table.string('name').notNullable();
+    table.string('name', 255).notNullable();
     table
-      .string('email')
+      .string('email', 255)
       .unique()
       .notNullable();
     table
@@ -17,7 +17,7 @@ exports.up = function(knex) {
       .timestamp('updated_at')
       .defaultTo(knex.fn.now())
       .notNullable();
-    table.timestamp('deleted_at').defaultTo(knex.fn.now(0));
+    table.timestamp('deleted_at').defaultTo(null);
   });
 };
 
