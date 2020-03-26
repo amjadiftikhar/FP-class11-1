@@ -21,6 +21,7 @@ exports.up = function(knex) {
       .timestamp('deleted_at')
       .nullable()
       .defaultTo(null);
+    table.string('uid').notNullable();
   });
 };
 
