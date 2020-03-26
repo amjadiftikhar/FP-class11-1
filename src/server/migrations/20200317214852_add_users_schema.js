@@ -9,8 +9,18 @@ exports.up = function(knex) {
       .string('email', 255)
       .unique()
       .notNullable();
-    table.timestamp('deleted_at');
-    table.timestamps(true, true);
+    table
+      .timestamp('created_at')
+      .defaultTo(knex.fn.now())
+      .notNullable();
+    table
+      .timestamp('updated_at')
+      .defaultTo(knex.fn.now())
+      .notNullable();
+    table
+      .timestamp('deleted_at')
+      .nullable()
+      .defaultTo(null);
   });
 };
 
