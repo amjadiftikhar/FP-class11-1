@@ -10,7 +10,7 @@ exports.up = function(knex) {
       .unique()
       .notNullable();
     table.timestamp('deleted_at');
-    table.timestamps(true, true);
+    table.timestamps(true, false);
   });
 };
 
