@@ -7,8 +7,8 @@ exports.up = function(knex) {
     table.string('name').notNullable();
     table
       .integer('fk_unit_id')
-      .notNullable()
-      .unsigned();
+      .unsigned()
+      .notNullable();
     table
       .timestamp('created_at')
       .defaultTo(knex.fn.now())
@@ -18,10 +18,6 @@ exports.up = function(knex) {
       .defaultTo(knex.fn.now())
       .notNullable();
     table.timestamp('deleted_at');
-    table
-      .foreign('fk_unit_id')
-      .references('id')
-      .inTable('units');
   });
 };
 
