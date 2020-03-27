@@ -17,7 +17,6 @@ exports.up = function(knex) {
       .timestamp('updated_at')
       .defaultTo(knex.fn.now())
       .notNullable();
-
     table.timestamp('deleted_at');
     table
       .foreign('fk_unit_id')
@@ -27,5 +26,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('material');
+  return knex.schema.dropTable('materials');
 };
