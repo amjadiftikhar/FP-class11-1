@@ -15,6 +15,7 @@ exports.up = function(knex) {
       .notNullable();
   });
 };
+
 exports.down = function(knex) {
   return knex.schema.dropTable('roles');
 };
